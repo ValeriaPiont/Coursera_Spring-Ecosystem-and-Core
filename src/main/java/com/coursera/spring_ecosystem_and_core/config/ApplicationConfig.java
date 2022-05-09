@@ -11,8 +11,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationConfig {
 
-	@Value("2")
+	@Value("${max}")
 	private int numberOfStudents;
+
+//	@Value("#{T(java.lang.Math).random() * 100.0}")
+//	double randomVal;
 
 	@Bean(name = "service")
 	public StudentService studentService(){
