@@ -6,15 +6,11 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-<!--	<bean id="studentService" class="com.coursera.spring_ecosystem_and_core.service.StudentServiceImpl"/>-->
-
-	<!--	setter injection-->
-	<bean id="studentService" class="com.coursera.spring_ecosystem_and_core.service.StudentServiceImpl">
-		<property name="studentDao" ref="studentServiceDao"/>
-		<property name="numberOfStudents" value="2"/>
-	</bean>
-
-	<bean id="studentServiceDao" class="com.coursera.spring_ecosystem_and_core.dao.StudentDaoImpl"/>
-	<!--	setter injection-->
+	<context:annotation-config/>
+	<context:component-scan base-package="com.coursera.spring_ecosystem_and_core">
+		<context:exclude-filter type="assignable" expression="com.coursera.spring_ecosystem_and_core.SpringEcosystemAndCoreApplication"/>
+		<context:exclude-filter type="regex" expression="com.student.core.*"/>
+		<context:exclude-filter type="assignable" expression="com.coursera.spring_ecosystem_and_core.SpringEcosystemAndCoreApplicationTest"/>
+	</context:component-scan>
 
 </beans>

@@ -1,11 +1,13 @@
 package com.coursera.spring_ecosystem_and_core.dao;
 
 import com.coursera.spring_ecosystem_and_core.core.Student;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class StudentDaoImpl implements StudentDao {
 
     private Map<Long, Student> students;
