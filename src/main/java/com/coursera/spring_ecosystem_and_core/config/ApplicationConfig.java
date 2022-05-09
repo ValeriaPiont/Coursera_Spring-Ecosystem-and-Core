@@ -6,8 +6,8 @@ import com.coursera.spring_ecosystem_and_core.proxy.StudentServiceProxy;
 import com.coursera.spring_ecosystem_and_core.service.StudentService;
 import com.coursera.spring_ecosystem_and_core.service.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -19,7 +19,7 @@ public class ApplicationConfig {
     @Value("{$max}")
     private int numberOfStudents;
 
-    @ConditionalOnExpression("'${env}' == 'prod'")
+    @Conditional(StudentConditional_Prod.class)
     @Bean(name = "service")
     public StudentService studentService() {
         StudentServiceImpl service = new StudentServiceImpl();
@@ -28,7 +28,7 @@ public class ApplicationConfig {
         return service;
     }
 
-    @ConditionalOnExpression("'${env}' == 'test'")
+    @Conditional(StudentConditional_Test.class)
     @Bean(name = "service")
     public StudentService studentServiceTest() {
         StudentServiceImpl service = new StudentServiceImpl();
