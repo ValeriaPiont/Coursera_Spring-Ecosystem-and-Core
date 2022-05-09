@@ -2,12 +2,10 @@ package com.coursera.spring_ecosystem_and_core.dao;
 
 import com.coursera.spring_ecosystem_and_core.core.Student;
 
-import javax.inject.Named;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-@Named
 public class StudentDaoImpl implements StudentDao {
 
     private Map<Long, Student> students;
