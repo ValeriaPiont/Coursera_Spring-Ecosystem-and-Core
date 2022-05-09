@@ -6,7 +6,6 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -14,7 +13,6 @@ import javax.persistence.Table;
 @Setter
 @ToString
 @Entity
-@Table(name = "students")
 public class Student {
 
     @Id
